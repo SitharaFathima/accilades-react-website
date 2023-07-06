@@ -1,25 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+// style
+import "./App.css";
+
+// package
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Helmet } from 'react-helmet';
+
+// components
+import Landingpage from "./components/screens/homepage/Landingpage";
+import About from "./components/screens/aboutpage/About";
+import ServiceDetail from "./components/screens/homepage/service/ServiceDetail";
+import Gallery from "./components/screens/gallery/Gallery";
+import Details from "./components/screens/gallery/Details";
+import ContactPage from "./components/screens/contact/ContactPage";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <>
+            <Helmet>
+                <title>Accolades</title>
+                <meta name="description" content="App Description" />
+                <meta name="theme-color" content="#008f68" />
+            </Helmet>
+            <Router>
+                <Routes>
+                    <Route path="/" element={<Landingpage />} />
+                    <Route path="/home" element={<Landingpage />} />
+                    <Route path="/about" element={<About />} />
+                    <Route path="/service" element={<ServiceDetail />} />
+                    <Route path="/gallery" element={<Gallery />} />
+                    <Route path="/details/:id" element={<Details />} />
+                    <Route path="/contact" element={<ContactPage />} />
+                </Routes>
+            </Router>
+        </>
+    );
 }
-
 export default App;

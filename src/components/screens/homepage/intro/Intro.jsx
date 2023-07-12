@@ -94,3 +94,4 @@ const ButtonBox = styled.div`
     text-align:center;
 `;
 export default Intro
+

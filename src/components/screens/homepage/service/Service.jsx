@@ -4,6 +4,14 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from "react-router-dom";
 
+// images
+import backimg from "../../../assets/images/backImg.png"
+import Rightarrow from "../../../assets/icons/right-arrow.png"
+
+
+// components
+import Xplain from './Xplain';
+
 function Service() {
 
 const datas = [
@@ -11,31 +19,49 @@ const datas = [
         id:1,
         title: 'Website Development',
         description: 'This part of chemistry deals with atomic structure and molecular structure.structure and molecular structure.This part of chemistry deals with atomic structure and molecular structure.structure and molecular structure.',
-        image: require('../../../assets/images/service12.jpeg'),
+        image: require('../../../assets/icons/green.png'),
     },
     {
         id:2,
         title: 'Web Application',
         description: 'This part of chemistry deals with atomic structure and molecular structure.structure and molecular structure.This part of chemistry deals with atomic structure and molecular structure.structure and molecular structure.',
-        image: require('../../../assets/images/service.jpg'),
+        image: require('../../../assets/icons/green1.png'),
     },
     {
         id:3,
         title: 'Degital Marketing',
         description: 'This part of chemistry deals with atomic structure and molecular structure.structure and molecular structure.This part of chemistry deals with atomic structure and molecular structure.structure and molecular structure.',
-        image: require('../../../assets/images/service10.jpeg'),
+        image: require('../../../assets/icons/green2.png'),
+    },
+    {
+        id:4,
+        title: 'Website Development',
+        description: 'This part of chemistry deals with atomic structure and molecular structure.structure and molecular structure.This part of chemistry deals with atomic structure and molecular structure.structure and molecular structure.',
+        image: require('../../../assets/icons/green.png'),
+    },
+    {
+        id:5,
+        title: 'Web Application',
+        description: 'This part of chemistry deals with atomic structure and molecular structure.structure and molecular structure.This part of chemistry deals with atomic structure and molecular structure.structure and molecular structure.',
+        image: require('../../../assets/icons/green2.png'),
     },
     
 ]
 
 return (
+    <>
     <Container>
         <Topbox>
-            <New>Our services</New>
+            <New>Our Customer services</New>
+            <ButtonBox>
+                <Para>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Esse tenetur illo iure harum cumque deserunt quisquam omnis autem illum modi delectus sint nemo fugiat, ipsum maxime quod repudiandae minima nostrum?</Para>
+                <Button to={"/service"}>Learn more <Span><RightArrow src={Rightarrow} /></Span></Button>
+            </ButtonBox>
         </Topbox>
         <FlexBox>
-        {datas.map((item) => (
+        
             <Cards>
+            {datas.map((item) => (
                 <Card>
                     <Item>
                         <Image src={item.image} alt="item.title" />
@@ -45,20 +71,21 @@ return (
                         <Description>{item.description}</Description>
                     </Containeres>
                 </Card>
+                ))}
             </Cards> 
-        ))}
         </FlexBox>
-        <ButtonBox>
-            <Button to={"/service"}>Learn more</Button>
-        </ButtonBox>
     </Container>
+    <Xplain />
+    </>
     ) 
 }
 
 export default Service;
 
 const Container = styled.div`
-    padding: 60px 100px 120px;
+    background:url(${backimg}); 
+    background-repeat: no-repeat;
+    padding: 60px 100px 80px;
     @media all and (max-width: 1180px) {
         padding: 50px 50px 80px;
     }
@@ -70,15 +97,30 @@ const Container = styled.div`
     }
 `;
 const Topbox = styled.div`
-    margin: 35px 30px 30px 0;
+    display: flex;
+    width: 90%;
+    margin: 0 auto 80px;
     @media all and (max-width: 640px){
     margin-top: 50px;
     }
 `;
+const Para = styled.p`
+    width: 80%;
+    margin-bottom: 20px;
+`;
+const Span = styled.span`
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+`;
+const RightArrow = styled.img`
+    display: inline-block;
+    width: 12px;100%
+`;
 const New = styled.h2`
     font-size: 34px;
+    width: 50%;
     color:#0c7479;
-    text-align: center;
     font-family: "dm_sansbold";
     @media all and (max-width: 480px){
         font-size: 18px;
@@ -87,21 +129,22 @@ const New = styled.h2`
         font-size: 14px;
     }
 `;
-const FlexBox = styled.div`
-    display: flex;
-    justify-content: space-between;
-    width: 96%;
-    margin: 0 auto 50px;
-    @media all and (max-width: 640px) {
-        flex-wrap: wrap;
-    }
-`;
+const FlexBox = styled.div``;
 const Cards = styled.div`
-
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
 `;
 const Card = styled.div`
-    width: 90%; 
-    box-shadow: -1px 0px 4px -2px #9e9696;
+    width: 32%; 
+    padding-top: 30px;
+    transform: scale(0.9);
+    transition: all 0.2s ease-in-out 0s;
+    &:hover {
+        transform: scale(1);
+        background: linear-gradient(90deg, #FFE4E2 2%, #FFB6C1 97.59%);
+    }
     @media all and (max-width: 768px){
         width: 95%;
     }
@@ -111,7 +154,9 @@ const Card = styled.div`
     }
 `;
 const Item = styled.div`
-    width: 100%; 
+    width: 30px;
+    height:30px;
+    margin: 0 auto;
 `;
 const Image = styled.img`
     width: 100%;
@@ -123,8 +168,9 @@ const Containeres = styled.div`
 const Text = styled.h3`
     font-size: 14px;
     color:#0c7479;
+    text-align: center;
     font-family: "dm_sansmedium";
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     font-weight: bolder;
     @media all and (max-width: 980px){
         font-size: 12px;
@@ -141,7 +187,9 @@ const Text = styled.h3`
 `;
 const Description = styled.p`
     font-size: 16px;
-    margin-bottom: 20px;
+    text-align: center;
+    width: 90%;
+    margin: 0 auto 20px;
     color: #9e9696;
     font-family: "dm_sansregular";
     @media all and (max-width: 768px){
@@ -155,14 +203,12 @@ const Description = styled.p`
     }
 `;
 const ButtonBox = styled.div`
-    text-align:center;
+    width: 50%;
 `;
 const Button = styled(Link)`
     display: inline-block;
-    padding:12px 25px;
     border-radius:50px;
-    background-color:#0c7479;
-    color: #FFFFFF;
+    color:#0c7479;
     text-align:center;
 `;
 

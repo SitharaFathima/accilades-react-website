@@ -9,13 +9,16 @@ import Header from "../../screens/homepage/header/Header";
 import { datas } from "../gallery/data";
 import Footer from "../homepage/footer/Footer";
 
+// images
+import greyimg from "../../assets/images/Three.jpg"
+
 
 function Details() {
-  const { id } = useParams();
-  const item = datas.find((item) => item.id === Number(id));
-  const navigate = useNavigate();
+    const { id } = useParams();
+    const item = datas.find((item) => item.id === Number(id));
+    const navigate = useNavigate();
 
-  return (
+return (
     <>
         <Header />
         <Container>
@@ -38,6 +41,8 @@ function Details() {
 }
 
 const Container = styled.div`
+    background:url(${greyimg}); 
+    background-size: cover;
     padding:120px 160px;
     @media all and (max-width: 1280px) {
         padding: 5% 8%;

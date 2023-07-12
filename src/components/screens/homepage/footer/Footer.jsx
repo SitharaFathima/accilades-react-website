@@ -4,6 +4,9 @@ import React from 'react';
 import styled from 'styled-components';
 import { NavLink } from "react-router-dom";
 
+// images
+import greyimg from "../../../assets/images/grey.jpg"
+
 function Footer() {
     return (
     <>
@@ -44,7 +47,8 @@ function Footer() {
     )
 }
 const FooterBox = styled.footer`
-    background-color: #f1f1f1;
+    background:url(${greyimg}); 
+    background-size: cover;
     padding: 60px 140px 30px;
     @media all and (max-width: 1180px){
         padding: 60px 80px 30px;

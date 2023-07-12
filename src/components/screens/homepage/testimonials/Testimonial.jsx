@@ -1,5 +1,12 @@
 import React, { useState } from 'react';
+
+// package
 import styled from 'styled-components';
+
+// images
+import quotes from "../../../assets/icons/quotes.png";
+import test from "../../../assets/images/Test.jpg";
+
 
 // Dummy testimonial data
 const testimonials = [
@@ -106,6 +113,9 @@ const handleNextClick = () => {
 					<TestimonialImage src={testimonial.image} alt="Profile" />
 					<TestimonialName>{testimonial.name}</TestimonialName>
 					<TestimonialPosition>{testimonial.position}</TestimonialPosition>
+					<TestimonialQuote>
+				        <Quote src={quotes} alt="Quote" />
+					</TestimonialQuote>
 					<TestimonialDescription>{testimonial.description}</TestimonialDescription>
 				</TestimonialCard>
 			))}
@@ -118,8 +128,10 @@ const handleNextClick = () => {
 };
 
 const Container = styled.section`
+    background:url(${test}); 
     padding: 60px 130px;
-    background-color: #ebebeb;
+    background-repeat:no-repeat;
+    background-size:cover;
     @media all and (max-width: 980px){
         padding: 60px 40px;
     }
@@ -135,7 +147,7 @@ const Name = styled.h2`
     color: #0c7479;
     font-family: "dm_sansbold";
     margin-bottom: 40px;
-        text-align: center;
+    text-align: center;
 `;
 const TestimonialSlider = styled.div`
     display: flex;
@@ -148,15 +160,10 @@ const TestimonialSlider = styled.div`
     }
 `;
 const TestimonialCard = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     padding: 50px;
-    background-color: #fff;
     border-radius: 8px;
     margin-right: 20px;
     min-width: 967px;
-    text-align: center;
     @media all and (max-width: 1380px){
         min-width: 780px;
     }
@@ -176,7 +183,7 @@ const TestimonialCard = styled.div`
         min-width: 261px;
         padding: 30px 14px;
     }
-    @media all and (max-width: 3600px){
+    @media all and (max-width: 360px){
         min-width: 231px;
         padding: 30px 14px;
     }
@@ -185,19 +192,31 @@ const TestimonialCard = styled.div`
 const TestimonialImage = styled.img`
     width: 100px;
     height: 100px;
+    margin: 0 auto 10px;
     object-fit: cover;
     border-radius: 50%;
-    margin-bottom: 10px;
+    display: block;
 `;
 const TestimonialName = styled.h3`
     margin-bottom: 5px;
+    text-align: center;
     color: #0c7479;
     font-family: "dm_sansbold";
 `;
 const TestimonialPosition = styled.p`
     margin-bottom: 15px;
+    text-align: center;
     font-size:16px;
     font-family: "dm_sansregular";
+`;
+const TestimonialQuote = styled.span`
+    width: 30px;
+    display: inline-block;
+    height; 30px;
+`;
+const Quote = styled.img`
+    width: 100%;
+    display: block;
 `;
 const TestimonialDescription = styled.p`
     text-align: center;
@@ -205,10 +224,11 @@ const TestimonialDescription = styled.p`
 `;
 const ArrowButton = styled.button`
 	position: absolute;
-	background-color: transparent;
+    background-color: #0c7479;
 	border: none;
+	padding: 0 12px;
 	outline: none;
-	font-size: 50px;
+	font-size: 30px;
 	color: #999;
 	cursor: pointer;
 	transition: color 0.3s ease;
@@ -223,10 +243,11 @@ const ArrowButton = styled.button`
 `;
 const ArrowButtone = styled.button`
 	position: absolute;
-	background-color: transparent;
+	background-color: #0c7479;
 	border: none;
+	padding: 0 12px;
 	outline: none;
-	font-size: 50px;
+	font-size: 30px;
 	color: #999;
 	cursor: pointer;
 	transition: color 0.3s ease;
